@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
 import { Card } from "./hooks/Cards";
 
-
 export const App = () => {
-  const characters = [
-    {
-      id: 164,
-      name: "Insurance Rick",
-      image: "",
-    }
-  ];
-
   //useState
+  const [characterList, setCharacterList] = useState("");
   const [character, setCharacter] = useState("");
   const url = "https://rickandmortyapi.com/api/character";
   const { data, isLoading } = useFetch(url);
+
+  //useEffect
+  useEffect(() => {
+    const getCharacters = async () => {
+      const res = await fetch(
+        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6"
+      );
+      const data = await res.json();
+      setCharacterList([...data]);
+    };
+
+    getCharacters();
+  }, []);
 
   const onSelectCharacter = (event) => {
     const value = event.target.value;
@@ -31,15 +36,10 @@ export const App = () => {
         </h1>
         <fieldset>
           <legend>Choose any character:</legend>
-          {characters.map((item, index) => {
-            return (
-              <Card name={item.name} image={item.image}/>
-
-            );
+          {characterList.map((item, index) => {
+            return <Card name={item.name} image={item.image} />;
           })}
         </fieldset>
-
-        {/* {isLoading ? <h2>Is Loading</h2> : <h1>cargó {data.species}</h1>} */}
       </div>
     </>
   );
