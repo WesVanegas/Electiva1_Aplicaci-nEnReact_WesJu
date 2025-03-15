@@ -38,14 +38,18 @@ export const ExpandableCard1 = ({
 
       <motion.div
         layout
-        className={`bg-white shadow-lg rounded-lg p-6 z-50 mx-6 ${
-          isExpanded ? "cursor-default" : "cursor-pointer"
+        className={`bg-white shadow-lg rounded-lg p-6 border-2 border-indigo-500 ${
+          isExpanded ? "cursor-default fixed z-50" : "cursor-pointer relative z-10"
         }`}
         onClick={!isExpanded ? handleToggle : null}
         initial={false}
         animate={{
           width: isExpanded ? "350px" : "300px",
           height: isExpanded ? "430px" : "120px",
+          top: isExpanded ? "10%" : "auto",
+          left: isExpanded ? "40%" : "auto",
+          translateX: isExpanded ? "-50%" : "0",
+          translateY: isExpanded ? "-50%" : "0",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -76,9 +80,6 @@ export const ExpandableCard1 = ({
                 isExpanded ? "justify-center" : "justify-start"
               } text-gray-600 mt-1`}
             >
-              {/* 
-              <motion.span>{species} </motion.span>
-              */}
             </div>
           </div>
         </div>
