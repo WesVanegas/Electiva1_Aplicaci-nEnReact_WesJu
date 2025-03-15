@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import { Card } from "./hooks/Cards";
+import {  ExpandableCard1 } from "./hooks/Cards";
 
 export const App = () => {
   //useState
   const [characterList, setCharacterList] = useState([]);
-  const url = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6";
+  const url = "https://rickandmortyapi.com/api/character";
 
   //useEffect
   useEffect(() => {
     const getCharacters = async () => {
       const res = await fetch(url);
       const data = await res.json();
-      setCharacterList([...data]);
+      setCharacterList([...data.results]);
     };
 
     getCharacters();
@@ -27,7 +27,7 @@ export const App = () => {
         <fieldset>
           <legend>Choose any character:</legend>
           {characterList.map((item, index) => {
-            return <Card name={item.name} image={item.image} id={item.id}/>;
+            return <ExpandableCard1 name={item.name} image={item.image} id={item.id}/>;
           })}
         </fieldset>
       </div>
