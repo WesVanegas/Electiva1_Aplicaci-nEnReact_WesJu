@@ -23,14 +23,16 @@ export const ExpandableCard1 = ({ name, image, id }) => {
     }
   };
 
-  // useEffect(() => {
-  //   const getInfo = async () => {
-  //     const res = await fetch(url);
-  //     const data = await res.json();
-  //     setInfo([...data]);
-  //   };
-  //   getInfo();
-  // }, [isExpanded]);
+  useEffect(() => {
+    const getInfo = async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      setInfo([...data]);
+    };
+    if (isExpanded) {
+      getInfo();
+    }
+  }, [isExpanded]);
 
   return (
     <div className="relative flex justify-center items-center h-96">
