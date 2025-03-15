@@ -2,7 +2,8 @@
 Electiva - Software I
 **Nombre del Proyecto:** Aplicación en React
 **Equipo:** Equipo Wesju
-**Integrantes:**
+
+### Integrantes
 * Juana Solano
 * Wesley Vanegas
   
