@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  HiOutlineLocationMarker,
-  HiOutlineUserAdd,
-  HiOutlineMail,
-} from "react-icons/hi";
-import { useMediaQuery } from "react-responsive";
 
 export const ExpandableCard1 = ({
   name,
   image,
-  id,
   species,
   status,
   gender,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const [info, setInfo] = useState([]);
-  const url = "https://rickandmortyapi.com/api/character/" + id;
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
@@ -30,26 +20,13 @@ export const ExpandableCard1 = ({
     }
   };
 
-  /*
-  useEffect(() => {
-    const getInfo = async () => {
-      const res = await fetch(url);
-      const data = await res.json();
-      setInfo([...data.id]);
-    };
-    if (isExpanded) {
-      getInfo();
-    }
-  }, [isExpanded]);
-  */
-
   return (
     <div className="relative flex justify-center items-center h-48 w-1/3">
       <AnimatePresence>
         {isExpanded && (
           <motion.div
             id="overlay"
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 "
             initial={false}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -67,8 +44,8 @@ export const ExpandableCard1 = ({
         onClick={!isExpanded ? handleToggle : null}
         initial={false}
         animate={{
-          width: isExpanded ? (isMobile ? "350px" : "400px") : "300px",
-          height: isExpanded ? "330px" : "120px",
+          width: isExpanded ? "350px" : "300px",
+          height: isExpanded ? "430px" : "120px",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -118,8 +95,6 @@ export const ExpandableCard1 = ({
               <motion.span>{species} </motion.span>
               <motion.h3>{status}</motion.h3>
               <motion.h3>{gender}</motion.h3>
-              
-
               </div>
             </motion.div>
           )}

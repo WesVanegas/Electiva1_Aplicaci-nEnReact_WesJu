@@ -33,9 +33,9 @@ export const App = () => {
                 <ExpandableCard1
                   name={item.name}
                   image={item.image}
-                  id={item.id}
                   species={item.species} 
                   status={item.status}
+                  gender={item.gender}
                 />
               );
             })}
