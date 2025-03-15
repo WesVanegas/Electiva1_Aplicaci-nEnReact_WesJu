@@ -22,8 +22,8 @@ Este proyecto implementa los siguientes items:
 ● Custom hooks
 ```
 
-Para usar la api de https://rickandmortyapi.com/, mostrando distintos personajes de la
-caricatura para mostrar un detalle de cada una de ella cuando se expanda la tarjeta.
+Se utiliza la API de https://rickandmortyapi.com/, para traer distintos personajes de la
+caricatura y mostrar un detalle de cada uno de ellos cuando se expanda la tarjeta.
 ![image](https://github.com/user-attachments/assets/66d245d3-b570-44f1-9974-39af115ec383)
 
 ### Instrucciones de compilación y ejecución
