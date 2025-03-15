@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
-import { Card } from "./hooks/Cards";
+import { Card, ExpandableCard1 } from "./hooks/Cards";
 
 export const App = () => {
   //useState
-  const [characterList, setCharacterList] = useState("");
+  const [characterList, setCharacterList] = useState([]);
   const [character, setCharacter] = useState("");
   const url = "https://rickandmortyapi.com/api/character";
   const { data, isLoading } = useFetch(url);
@@ -37,7 +37,7 @@ export const App = () => {
         <fieldset>
           <legend>Choose any character:</legend>
           {characterList.map((item, index) => {
-            return <Card name={item.name} image={item.image} />;
+            return <ExpandableCard1 name={item.name} image={item.image} />;
           })}
         </fieldset>
       </div>
