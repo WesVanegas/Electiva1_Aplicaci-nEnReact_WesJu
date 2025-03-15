@@ -1,33 +1,33 @@
-### Nombre de la Materia
+### Subject
 Electiva - Software I
 
-### Nombre del Proyecto
-Aplicación en React
+### Project Name
+React Aplication
 
-### Equipo
-Equipo Wesju
+### Team
+Wesju
 
-### Integrantes
+### Members
 * Juana Solano
 * Wesley Vanegas
   
-### Descripción
-Este proyecto implementa los siguientes items:
+### Description
+This project implements the following items:
 ```
-● Ciclo de vida de los componentes
-● Manejo de props
+● Component life cycle
+● Prop management
 ● useState()
 ● useEffect()
 ● fetch()
 ● Custom hooks
 ```
 
-Se utiliza la API de https://rickandmortyapi.com/, para traer distintos personajes de la
-caricatura y mostrar un detalle de cada uno de ellos cuando se expanda la tarjeta.
+It uses the API of https://rickandmortyapi.com/, to bring different characters of the 
+cartoon and show a detail of each one when the card is expanded.
 ![image](https://github.com/user-attachments/assets/66d245d3-b570-44f1-9974-39af115ec383)
 
-### Instrucciones de compilación y ejecución
-1. Clonar el repositorio.
-2. Ejecutar `npm install`.
-3. Ejecutar `npm start` para iniciar la
-aplicación.
+### Compilation and execution instructions
+1. Clone the repository.
+2. Run `npm install`.
+3. Run `npm start` to start the application.
+
