@@ -44,7 +44,7 @@ export const ExpandableCard1 = ({
   */
 
   return (
-    <div className="relative flex justify-center items-center h-96">
+    <div className="relative flex justify-center items-center h-96 w-1/3 mb-4">
       <AnimatePresence>
         {isExpanded && (
           <motion.div
@@ -83,8 +83,8 @@ export const ExpandableCard1 = ({
             className="rounded-full shadow-md"
             initial={false}
             animate={{
-              width: isExpanded ? "80px" : "64px",
-              height: isExpanded ? "80px" : "64px",
+              width: isExpanded ? "170px" : "64px",
+              height: isExpanded ? "170px" : "64px",
             }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
@@ -99,7 +99,9 @@ export const ExpandableCard1 = ({
                 isExpanded ? "justify-center" : "justify-start"
               } text-gray-600 mt-1`}
             >
+              {/* 
               <motion.span>{species} </motion.span>
+              */}
             </div>
           </div>
         </div>
@@ -113,8 +115,11 @@ export const ExpandableCard1 = ({
               className="mt-4 w-full"
             >
               <div className="flex flex-col items-center space-y-4">
-                <motion.h3>{status}</motion.h3>
-                
+              <motion.span>{species} </motion.span>
+              <motion.h3>{status}</motion.h3>
+              <motion.h3>{gender}</motion.h3>
+              
+
               </div>
             </motion.div>
           )}
