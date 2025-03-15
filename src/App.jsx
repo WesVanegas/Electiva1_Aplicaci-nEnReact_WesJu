@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
-import { useFetch } from "./hooks/useFetch";
 import { Card } from "./hooks/Cards";
 
 export const App = () => {
   //useState
-  const [characterList, setCharacterList] = useState("");
-  const [character, setCharacter] = useState("");
-  const url = "https://rickandmortyapi.com/api/character";
-  const { data, isLoading } = useFetch(url);
+  const [characterList, setCharacterList] = useState([]);
+  const url = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6";
 
   //useEffect
   useEffect(() => {
     const getCharacters = async () => {
-      const res = await fetch(
-        "https://rickandmortyapi.com/api/character/1,2,3,4,5,6"
-      );
+      const res = await fetch(url);
       const data = await res.json();
       setCharacterList([...data]);
     };
@@ -22,11 +17,6 @@ export const App = () => {
     getCharacters();
   }, []);
 
-  const onSelectCharacter = (event) => {
-    const value = event.target.value;
-    setCharacter(value);
-    console.log(value);
-  };
 
   return (
     <>
@@ -37,7 +27,7 @@ export const App = () => {
         <fieldset>
           <legend>Choose any character:</legend>
           {characterList.map((item, index) => {
-            return <Card name={item.name} image={item.image} />;
+            return <Card name={item.name} image={item.image} id={item.id}/>;
           })}
         </fieldset>
       </div>

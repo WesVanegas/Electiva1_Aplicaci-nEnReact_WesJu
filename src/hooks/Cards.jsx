@@ -1,4 +1,20 @@
-export const Card = ({name, image, link }) => {
+import { useState, useEffect } from "react";
+
+export const Card = ({ name, image, id }) => {
+  const [isExpanded, setIsExpanded] = useState("");
+  const [info, setInfo] = useState("");
+  const url = "https://rickandmortyapi.com/api/character/1";
+
+
+  useEffect(() => {
+    const getInfo = async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      setInfo([...data]);
+    };
+    getInfo();
+  }, [isExpanded]);
+
   return (
     <>
       <div class="card">
@@ -6,11 +22,10 @@ export const Card = ({name, image, link }) => {
 
         <div class="body">
           <img src={image} alt={name} />
-          
         </div>
 
         <div class="pie">
-          <a href={link}>More information</a>
+          <a onClick={id}>More information</a>
         </div>
       </div>
     </>
