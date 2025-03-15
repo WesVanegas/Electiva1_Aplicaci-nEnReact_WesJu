@@ -44,7 +44,7 @@ export const ExpandableCard1 = ({
   */
 
   return (
-    <div className="relative flex justify-center items-center h-96 w-1/3 mb-4">
+    <div className="relative flex justify-center items-center h-48 w-1/3">
       <AnimatePresence>
         {isExpanded && (
           <motion.div
