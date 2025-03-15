@@ -7,7 +7,14 @@ import {
 } from "react-icons/hi";
 import { useMediaQuery } from "react-responsive";
 
-export const ExpandableCard1 = ({ name, image, id }) => {
+export const ExpandableCard1 = ({
+  name,
+  image,
+  id,
+  species,
+  status,
+  gender,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [info, setInfo] = useState([]);
@@ -23,16 +30,18 @@ export const ExpandableCard1 = ({ name, image, id }) => {
     }
   };
 
+  /*
   useEffect(() => {
     const getInfo = async () => {
       const res = await fetch(url);
       const data = await res.json();
-      setInfo([...data]);
+      setInfo([...data.id]);
     };
     if (isExpanded) {
       getInfo();
     }
   }, [isExpanded]);
+  */
 
   return (
     <div className="relative flex justify-center items-center h-96">
@@ -90,8 +99,7 @@ export const ExpandableCard1 = ({ name, image, id }) => {
                 isExpanded ? "justify-center" : "justify-start"
               } text-gray-600 mt-1`}
             >
-              <HiOutlineLocationMarker className="text-teal-500 mr-1" />
-              <motion.span>{info.specie}</motion.span>
+              <motion.span>{species} </motion.span>
             </div>
           </div>
         </div>
@@ -105,14 +113,8 @@ export const ExpandableCard1 = ({ name, image, id }) => {
               className="mt-4 w-full"
             >
               <div className="flex flex-col items-center space-y-4">
-                <button className="bg-teal-500 text-white px-4 py-2 w-64 sm:w-full flex items-center justify-center rounded-lg hover:bg-teal-600">
-                  <HiOutlineUserAdd className="mr-2" />
-                  Follow
-                </button>
-                <button className="bg-slate-900 text-white px-4 py-2 rounded-lg w-64 sm:w-full flex items-center justify-center hover:bg-gray-300 hover:text-slate-900">
-                  <HiOutlineMail className="mr-2" />
-                  Contact
-                </button>
+                <motion.h3>{status}</motion.h3>
+                
               </div>
             </motion.div>
           )}

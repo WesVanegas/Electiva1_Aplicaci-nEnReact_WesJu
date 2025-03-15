@@ -27,7 +27,7 @@ export const App = () => {
         <fieldset>
           <legend>Choose any character:</legend>
           {characterList.map((item, index) => {
-            return <ExpandableCard1 name={item.name} image={item.image} id={item.id}/>;
+            return <ExpandableCard1 name={item.name} image={item.image} id={item.id} species={item.species} status={item.status}/>;
           })}
         </fieldset>
       </div>
